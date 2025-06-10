@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Filter</title>
+  <link rel="stylesheet" href="blog.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h1>My Blog</h1>
+  </nav>
+
+  <!-- Blog Header -->
+  <section id="about-home">
+    <h2>Blog /</h2>
+  </section>
+
+  <!-- Blog and Categories -->
+  <section id="blog-container">
+    <div class="blogs">
+      <div class="post" data-category="webdev">
+        <img src="images/b1.jpg" alt="Web Dev">
+        <h3>Learn Web Development</h3>
+        <p>HTML, CSS, JS for beginners.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="post" data-category="design">
+        <img src="images/b2.jpg" alt="Web Design">
+        <h3>Web Design Basics</h3>
+        <p>Intro to UI/UX and modern layouts.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="post" data-category="appdev">
+        <img src="images/b3.jpg" alt="App Dev">
+        <h3>App Development 101</h3>
+        <p>Build your first Android/iOS app.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="post" data-category="python">
+        <img src="images/b4.png" alt="Python">
+        <h3>Python Programming</h3>
+        <p>Start scripting and automating.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+
+    <div class="cate">
+      <h2>Categories</h2>
+      <hr />
+      <a href="#" class="category" data-category="webdev">Web Development</a>
+      <hr />
+      <a href="#" class="category" data-category="design">Web Design</a>
+      <hr />
+      <a href="#" class="category" data-category="appdev">App Development</a>
+      <hr />
+      <a href="#" class="category" data-category="python">Python Programming</a>
+      <hr />
+      <a href="#" class="category" data-category="all">Show All</a>
+    </div>
+  </section>
+
+  <script src="bolg.js"></script>
+</body>
+</html>

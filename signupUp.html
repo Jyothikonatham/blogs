@@ -1,0 +1,222 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+import { GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+
+import { signInAnonymously } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+
+//initialized firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBz1pfYoic75OMUmsQ6KK2Gk14W-K6wsWo",
+  authDomain: "healthmate-sign-login.firebaseapp.com",
+  projectId: "healthmate-sign-login",
+  storageBucket: "healthmate-sign-login.firebasestorage.app",
+  messagingSenderId: "478426428732",
+  appId: "1:478426428732:web:637e025e9eaec2cdfc5a39"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
+
+
+
+//Register with Anonymous
+
+document.getElementById("cguestButton").addEventListener("click", (e) => {
+  e.preventDefault(); // prevent default <a> navigation
+  const emailInput = document.getElementById("mail").value;
+
+  if (!emailInput) {
+    alert("Please enter an email");
+    return;
+  }
+
+  signInAnonymously(auth)
+    .then(async () => {
+      const user = auth.currentUser;
+
+      await setDoc(doc(db, "users", user.uid), {
+        email: emailInput,
+        createdAt: new Date()
+      });
+
+      alert("Signed in anonymously and email saved!");
+      window.location.href = 'patient_page.html';
+    })
+    .catch((error) => {
+      console.error("Error signing in anonymously:", error.code, error.message);
+      alert("Failed to sign in");
+    });
+});
+
+
+
+//Login with Anonymous
+
+document.getElementById("lguestButton").addEventListener("click", (e) => {
+  e.preventDefault(); // prevent default <a> navigation
+  const emailInput = document.getElementById("email_Login").value;
+
+  if (!emailInput) {
+    alert("Please enter an email");
+    return;
+  }
+
+  signInAnonymously(auth)
+    .then(async () => {
+      const user = auth.currentUser;
+
+      await setDoc(doc(db, "users", user.uid), {
+        email: emailInput,
+        createdAt: new Date()
+      });
+
+      alert("Signed in anonymously and email saved!");
+      window.location.href = 'patient_page.html';
+    })
+    .catch((error) => {
+      console.error("Error signing in anonymously:", error.code, error.message);
+      alert("Failed to sign in");
+    });
+});
+
+
+// Regester with Google
+
+cgoogle.addEventListener('click', (e) => {
+
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+
+      const user = result.user;
+
+      window.location.href = 'patient_page.html';
+
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.customData.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+
+    });
+
+});
+
+//Login With google
+
+lgoogle.addEventListener('click', (e) => {
+
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+
+      const user = result.user;
+
+      window.location.href = 'patient_page.html';
+
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.customData.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+
+    });
+
+});
+
+
+//get dom elements of signup
+const signUpBtn = document.getElementById('signUpButton');
+if (signUpBtn) {
+  signUpBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const signupEmail = document.getElementById('mail').value.trim();
+    const signupPassword = document.getElementById('pass').value.trim();
+    const role = document.getElementById('role').value;
+
+    if (!name || !signupEmail || !signupPassword || role === 'Select') {
+      alert("All fields are required.");
+      return;
+    }
+    if (!isValidName(name)) {
+      alert("Enter a valid name.");
+      return;
+    }
+    if (!isValidEmail(signupEmail)) {
+      alert("Enter a valid email.");
+      return;
+    }
+    if (!isValidPassword(signupPassword)) {
+      alert("Password must include upper/lowercase letters and numbers, and be at least 8 characters.");
+      return;
+    }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, signupEmail, signupPassword);
+      const user = userCredential.user;
+
+      const response = await fetch('http://localhost:8093/user/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firebaseUid: user.uid,
+          name: name,
+          email: signupEmail,
+          role: role.toUpperCase()
+        })
+      });
+
+      if (!response.ok) throw new Error("Failed to save user in backend");
+
+      alert("Signup successful!");
+      formHeading.textContent = "LOGIN";
+      document.getElementById('signUp').style.display = 'none';
+      document.getElementById('signIn').style.display = 'flex';
+    } catch (error) {
+      alert("Signup failed. " + error.message);
+      console.error(error);
+    }
+  });
+}
+
+
+
+//get dom elements of signIn checking to signUp
+
+document.getElementById('signInSubmit').addEventListener('click', async (e) => {
+  e.preventDefault();
+  const signInEmail = document.getElementById('email_Login').value.trim();
+  const signInPassword = document.getElementById('password_Login').value.trim();
+
+  if (!signInEmail || !signInPassword) {
+    alert("Please enter both email and password.");
+    return;
+  }
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, signInEmail, signInPassword);
+    window.location.href = "/patient_page.html";
+  } catch (error) {
+    if (error.code === 'auth/user-not-found') {
+      alert("Account not found. Please register.");
+    } else if (error.code === 'auth/wrong-password') {
+      alert("Incorrect password. Try again.");
+    } else if (error.code === 'auth/invalid-email') {
+      alert("Invalid email format.");
+    } else {
+      alert("Login failed. Please try again.");
+    }
+    console.error(error);
+  }
+});

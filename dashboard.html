@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Tech2 etc Tutorial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./dadhboard.css">
+</head>
+<body>
+    <nav>
+        <img src="images/logo.svg" alt="">
+        <div class="navigation">
+            <ul>
+                <i id="menu-close" class="fa fa-times" aria-hidden="true"></i>
+                <li><a class="active" href="#">Dashboard</a></li>
+                <li><a href="course.html">My Courses</a></li>
+                <li><a href="#">My Progress</a></li>
+                <li><a href="#">Settings</a></li>
+                <div class="account">
+                    <button type="button" class="btn btn-danger" id="logoutBtn">Logout</button>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-item active" data-content="overview">
+                <i class="fas fa-th-large"></i> Overview
+            </div>
+            <div class="sidebar-item" data-content="courses">
+                <i class="fas fa-book"></i> My Courses
+            </div>
+            <div class="sidebar-item" data-content="progress">
+                <i class="fas fa-chart-line"></i> Progress
+            </div>
+            <div class="sidebar-item" data-content="lessons">
+                <i class="fas fa-tasks"></i> Lessons
+            </div>
+            <div class="sidebar-item" data-content="profile">
+                <i class="fas fa-user"></i> Profile
+            </div>
+        </aside>
+
+        <div class="main-content" id="contentArea">
+            <!-- Student Profile Section -->
+            <div class="student-profile mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="profile-icon me-3">
+                                <i class="fas fa-user-circle fa-4x text-primary"></i>
+                            </div>
+                            <div class="student-info">
+                                <h3 id="studentName">Welcome, <span id="student-name"></span></h3>
+                                <p class="text-muted" id="studentEmail"></p>
+                                <p class="text-muted">Student ID: <span id="student-id"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Progress Overview -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Enrolled Courses</h5>
+                            <h2 id="enrolledCoursesCount" class="mt-3">0</h2>
+                            <p class="text-muted">Active Courses</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Overall Progress</h5>
+                            <div class="progress mt-3">
+                                <div id="overallProgress" class="progress-bar" role="progressbar" style="width: 0%" 
+                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Completed Lessons</h5>
+                            <h2 id="completedLessonsCount" class="mt-3">0</h2>
+                            <p class="text-muted">Total Lessons</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Courses -->
+            <div class="recent-courses mb-4">
+                <h4>Recent Courses</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Progress</th>
+                                <th>Last Accessed</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentCoursesTable">
+                            <!-- Courses will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to load student data
+        async function loadStudentData() {
+            try {
+                const response = await fetch('your-api-endpoint/student/details');
+                const data = await response.json();
+                
+                // Update student information
+                document.getElementById('student-name').textContent = data.name;
+                document.getElementById('studentEmail').textContent = data.email;
+                document.getElementById('student-id').textContent = data.id;
+
+                // Update enrollment count
+                document.getElementById('enrolledCoursesCount').textContent = data.enrollments?.length || 0;
+
+                // Calculate and update overall progress
+                if (data.progress) {
+                    const progressElement = document.getElementById('overallProgress');
+                    progressElement.style.width = `${data.progress}%`;
+                    progressElement.textContent = `${data.progress}%`;
+                }
+
+                // Update completed lessons
+                document.getElementById('completedLessonsCount').textContent = data.completedLessons || 0;
+
+                // Populate recent courses
+                const recentCoursesTable = document.getElementById('recentCoursesTable');
+                recentCoursesTable.innerHTML = ''; // Clear existing content
+
+                data.enrollments?.forEach(enrollment => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${enrollment.course.name}</td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" 
+                                    style="width: ${enrollment.progress}%" 
+                                    aria-valuenow="${enrollment.progress}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100">${enrollment.progress}%</div>
+                            </div>
+                        </td>
+                        <td>${new Date(enrollment.lastAccessed).toLocaleDateString()}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" 
+                                onclick="window.location.href='course.html?id=${enrollment.course.id}'">
+                                Continue
+                            </button>
+                        </td>
+                    `;
+                    recentCoursesTable.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading student data:', error);
+            }
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadStudentData);
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            // Add your logout logic here
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

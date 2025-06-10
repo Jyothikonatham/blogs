@@ -1,0 +1,277 @@
+{
+    "courses": [
+        {
+            "course1": {
+                "date": "Updated 21/8/21",
+                "coursename": "Diploma in Computer Application",
+                "rating": "⭐⭐⭐⭐",
+                "description": "A Diploma in Computer Application teaches basic computer skills, including software usage, programming, and data handling, helping students build a strong foundation for jobs in IT and related fields",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/dca.png",
+                "duration": "2 months",
+                "category": "Data Analyst"
+            },
+            "course2": {
+                "date": "Updated 6/11/24",
+                "coursename": "Post Graduate in DCA",
+                "rating": "⭐⭐⭐⭐",
+                "description": "A Post Graduate Diploma in Computer Applications (PGDCA) offers advanced computer skills like programming, software development, and networking. It helps graduates specialize in IT and improve career opportunities.",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/PGDCA.jpg",
+                "duration": "12 months",
+                  "category": "Data Analyst"
+            },
+            "course3": {
+                "date": "Updated 18/5/23",
+                "coursename": "Tally Prime",
+                "rating": "⭐⭐⭐⭐",
+                "description": "TallyPrime is a user-friendly accounting software that helps businesses track expenses, manage inventory, and handle taxes efficiently. It simplifies financial management, making everyday transactions smoother.",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/tally-prime.jpg",
+                "duration": "30 Days",
+                  "category": "Data Analyst"
+            },
+            "course4": {
+                "date": "Updated 6/11/21",
+                "coursename": "Microsoft Excel Advance",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Advanced Microsoft Excel helps users analyze data, automate tasks, and create reports easily. It includes powerful formulas and functions to improve efficiency and manage large datasets.",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/ms-office.jpg",
+                "duration": "30 Days",
+                  "category": "Data Analyst"
+            },
+            "course5": {
+                "date": "Updated 6/11/21",
+                "coursename": "Office Automation",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Office automation refers to the use of technology, software, and automated systems to streamline office tasks like data management, communication, and document processing. It helps businesses improve efficiency, reduce errors, and enhance productivity by automating repetitive processes",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/office-automation.png",
+                "duration": "3 months",
+                  "category": "Data Analyst"
+            },
+            "course6": {
+                "date": "Updated 6/11/21",
+                "coursename": "UI Technology's",
+                "rating": "⭐⭐⭐⭐",
+                "description": "UI technologies include tools like HTML, CSS, and JavaScript that help create user-friendly and interactive interfaces.\nAdvanced frameworks like React and Angular enhance web and app design for a smooth user experience",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/UI-Technology.webp",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course7": {
+                "date": "Updated 6/11/21",
+                "coursename": "OOPs with C++",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Object-Oriented Programming (OOP) in C++ is a programming approach that organizes code using objects and classes. It includes key concepts like encapsulation, inheritance, polymorphism, and abstraction, which help in creating modular, reusable, and efficient code",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/oopswithc.png",
+                "duration": "4 months",
+                "category": "Web Development"
+            },
+            "course8": {
+                "date": "Updated 6/11/21",
+                "coursename": "Data Structures using C",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Data Structures in C help organize and store data efficiently for easy access and manipulation. Common structures include arrays, linked lists, stacks, queues, trees, and graphs, each serving different purposes in programming",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/c&ds.png",
+                "duration": "6 months",
+                "category": "Web Development"
+            },
+            "course9": {
+                "date": "Updated 6/11/21",
+                "coursename": "Core Java",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Core Java is the fundamental part of Java programming, focusing on basic concepts like object-oriented programming (OOP), multithreading, exception handling, and collections. It is mainly used for building standalone applications and serves as the foundation for advanced Java technologies",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/core-java.png",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course10": {
+                "date": "Updated 6/11/21",
+                "coursename": "Advance Java",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Advanced Java goes beyond Core Java and focuses on enterprise-level development, including technologies like JDBC (Java Database Connectivity), Servlets, JSP (JavaServer Pages), and frameworks like Spring and Hibernate. It is used for building web applications, backend systems, and large-scale enterprise solutions",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/Advanced_java.png",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course11": {
+                "date": "Updated 6/11/21",
+                "coursename": "Java Enterprize Edition",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Java Enterprise Edition (Java EE), now called Jakarta EE, is a framework for building secure, scalable, and large enterprise applications. It includes technologies like Servlets, JSP, EJB, and JPA, helping businesses create web and backend systems efficiently",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/j2ee-500x500.webp",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course12": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Python Basic Course",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/python.jpeg",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course13": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Django Framework",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/django.jpeg",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course14": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Data Science",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/datascience.jpg",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course15": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "AWS",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/aws.png",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course16": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Power BI",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/powerbi.png",
+                "duration": "3 months",
+                "category": "Data Analyst"
+            },
+            "course17": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/devops.png",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course18": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Testing Tools",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/testingtools.jpg",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course19": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Dot net",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/dot%20net-mvc.webp",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course20": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML & CSS Beginners Course",
+                "rating": "⭐⭐⭐⭐",
+                "description": "SQL Server",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/sql%20server.png",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course21": {
+                "date": "Updated 6/11/21",
+                "coursename": "HTML",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/html.webp",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course22": {
+                "date": "Updated 6/11/21",
+                "coursename": "CSS",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/css.png",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course23": {
+                "date": "Updated 6/11/21",
+                "coursename": "Boostrap",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Boostrap",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/bootstrap-5.0-illustration.png",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course24": {
+                "date": "Updated 6/11/21",
+                "coursename": "JavaScript",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/javascript-illustration.png",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course25": {
+                "date": "Updated 6/11/21",
+                "coursename": "jQuery",
+                "rating": "⭐⭐⭐⭐",
+                "description": "jQuery",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/jquery.jpg",
+                "duration": "3 months",
+                "category": "Web Development"
+            },
+            "course26": {
+                "date": "Updated 6/11/21",
+                "coursename": "ReactJs",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/reactjs.png",
+                "duration": "3 months",
+                 "category": "Web Development"
+
+            },
+            "course27": {
+                "date": "Updated 6/11/21",
+                "coursename": "Angular",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/angular.png",
+                "duration": "3 months",
+                 "category": "Web Development"
+            },
+            "course28": {
+                "date": "Updated 6/11/21",
+                "coursename": "NodeJs",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/nodejs_cover_photo_smaller_size.png",
+                "duration": "3 months",
+                 "category": "Web Development"
+            },
+            "course29": {
+                "date": "Updated 6/11/21",
+                "coursename": "ExpressJs",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/ExpressJS-Library.jpg",
+                "duration": "3 months",
+                 "category": "Web Development"
+            },
+            "course30": {
+                "date": "Updated 6/11/21",
+                "coursename": "Mongo Database",
+                "rating": "⭐⭐⭐⭐",
+                "description": "Devolps",
+                "image": "https://jyothikonatham.github.io/Major_Project_course_images/mongo%20db.png",
+                "duration": "3 months",
+                 "category": "Web Development"
+            }
+        }
+    ]
+}
